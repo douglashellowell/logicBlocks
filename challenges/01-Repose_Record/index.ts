@@ -38,6 +38,7 @@ function solution(data: string): void {
         guardRef[currentGuard] = [];
       }
     } else {
+      // same guard... are they still asleep?
       const fellAsleep = /falls/g.test(row);
       const wokeUp = /wakes/g.test(row);
       if (fellAsleep) {
