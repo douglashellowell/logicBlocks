@@ -168,9 +168,7 @@ const sortByDateAndTime = (a: string, b: string) => {
 
 async function runSolution() {
   const data = await fs.readFile(`${__dirname}/input.txt`, 'utf-8');
-  const answer = solution(data);
-
-  //   console.log('answer:', answer);
+  solution(data);
 }
 
 runSolution();
