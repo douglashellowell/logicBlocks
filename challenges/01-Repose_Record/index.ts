@@ -1,6 +1,16 @@
 import fs from 'fs/promises';
 
 type GuardNum = `#${number}`;
+/**
+ * ```md
+ *  "#24": [<X empty items>, 2, 1, 1, 1, 2, 2, 2, 2]
+ *  "#58": [1, 2,<X empty items> 1, 2, 2, 2]
+ *  key === guard number
+ *      array
+ *      index === minutes from 00 > 59
+ *      values === times asleep in that minute
+ * ```
+ */
 type GuardRef = {
   [key: GuardNum]: number[];
 };
@@ -9,14 +19,8 @@ function solution(data: string): void {
   const rows = data.split('\n');
   rows.sort(sortByDateAndTime);
 
-  const guardRef: GuardRef = {
-    // "#24": [<X empty items>, 2, 1, 1, 1, 2, 2, 2, 2]
-    // "#58": [1, 2,<X empty items> 1, 2, 2, 2]
-    // key === guard number
-    // array
-    // index === minutes from 00 > 59
-    // values === times asleep in that minute
-  };
+  const guardRef: GuardRef = {};
+
   // to keep track of guard while looping
   let currentGuard: GuardNum = '#000'; // i hope this default doesn't ruin it lol
   // set fall asleep time then add time asleep to guardRef when they wake
