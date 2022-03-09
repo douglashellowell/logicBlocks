@@ -57,6 +57,7 @@ function solution(data: string): void {
     }
   });
 
+  // find guard who has most hours slept
   const [sleepiestGuard] = guardHabitFinder2000(guardRef, (sleepRecord) => {
     return sleepRecord.reduce((l, o) => (o ? l + o : l), 0); // l  0  l   o  l  0  l  o   l   ...
   });
@@ -72,6 +73,7 @@ function solution(data: string): void {
     timeMostLikelyToBeAsleep * parseInt(sleepiestGuard.slice(1))
   );
 
+  // find guard who has slept on the same minute the most && what that minute was
   const [mostConsistentGuard, mostAccumulatedMinute] = guardHabitFinder2000(
     guardRef,
     (sleepRecord) => {
