@@ -31,8 +31,7 @@ function solution(data: string): void {
     const matchGuardNum = row.match(/#\d*/);
     const newGuard = matchGuardNum !== null;
     if (newGuard) {
-      const newLocal = fallAsleepTime !== null;
-      if (newLocal) throw new Error("guard didn't wake up???");
+      if (fallAsleepTime !== null) throw new Error("guard didn't wake up???");
       currentGuard = matchGuardNum[0] as GuardNum;
       if (!guardRef[currentGuard]) {
         guardRef[currentGuard] = [];
